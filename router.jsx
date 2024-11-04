@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Categories from "./src/pages/Cateogries";
 import Home from "./src/pages/Home";
 import Makers from "./src/pages/Makers";
+import MakerInfo from "./src/pages/MakerInfo";
 import Products from "./src/pages/Products";
 import Root from "./src/layouts/Root";
 
@@ -20,8 +21,12 @@ const router = createBrowserRouter([
         element: <Products />,
       },
       {
-        path: "/makers",
+        path: "makers",
         element: <Makers />,
+      },
+      {
+        path: "makers/:makerId",
+        element: <MakerInfo />,
       },
       {
         path: "/categories",
