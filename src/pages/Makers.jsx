@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import Card from "../components/Card";
 import Title from "../components/Title";
@@ -26,7 +27,11 @@ function Makers() {
       <Title title={"Makers"} />
       <div className="flex flex-row flex-wrap gap-2 justify-center">
         {makers.map((maker) => {
-          return <Card key={maker.id} title={maker.name} />;
+          return (
+            <Link key={maker.id} to={`./${maker.id}`}>
+              <Card title={maker.name} />
+            </Link>
+          );
         })}
       </div>
     </main>

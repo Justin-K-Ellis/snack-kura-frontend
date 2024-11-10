@@ -19,7 +19,7 @@ function ProductTable() {
   }, []);
 
   return (
-    <table className="table md:w-11/12">
+    <table className="table md:w-11/12 border border-slate-400 rounded mx-auto mb-4">
       <thead>
         <tr>
           <th>Name</th>

@@ -5,6 +5,7 @@ import Home from "./src/pages/Home";
 import Makers from "./src/pages/Makers";
 import MakerInfo from "./src/pages/MakerInfo";
 import Products from "./src/pages/Products";
+import NewProduct from "./src/pages/NewProduct";
 import Root from "./src/layouts/Root";
 
 const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/products",
         element: <Products />,
+      },
+      {
+        path: "products/new",
+        element: <NewProduct />,
       },
       {
         path: "makers",

@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function MakerInfo() {
   const { makerId } = useParams();
   const baseUrl = import.meta.env.VITE_API_BASE;
   const [makerInfo, setMakerInfo] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getMakerInfo = async () => {
@@ -13,12 +15,15 @@ function MakerInfo() {
         const response = await fetch(`${baseUrl}/maker/${makerId}`);
         const data = await response.json();
         setMakerInfo(data);
+        setLoading(false);
       } catch (error) {
         console.log(`Failed to fetch maker ${makerId} info: ${error}`);
       }
     };
     getMakerInfo();
   }, []);
+
+  if (loading) return <p>Loading...</p>;
 
   return (
     <div>
@@ -41,6 +46,11 @@ function MakerInfo() {
           })}
         </tbody>
       </table>
+      <div className="flex justify-center mt-4">
+        <button className="btn btn-outline">
+          <Link to={"../makers"}>Back</Link>
+        </button>
+      </div>
     </div>
   );
 }
